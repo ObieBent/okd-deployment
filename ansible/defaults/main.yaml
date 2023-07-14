@@ -1,0 +1,45 @@
+---
+disk: vda
+helper:
+  name: "helper"
+  ipaddr: "192.168.110.9"
+dns:
+  domain: "buzz.lab"
+  clusterid: "cluster-okd"
+  forwarder1: "185.12.64.1"
+  forwarder2: "185.12.64.2"
+dhcp:
+  router: "192.168.110.9"
+  bcast: "192.168.110.255"
+  netmask: "255.255.255.0"
+  poolstart: "192.168.110.80"
+  poolend: "192.168.110.99"
+  ipid: "192.168.110.0"
+  netmaskid: "255.255.255.0"
+bootstrap:
+  name: "bootstrap"
+  ipaddr: "192.168.110.110"
+  macaddr: "52:54:00:f3:cd:dd"
+masters:
+  - name: "master0"
+    ipaddr: "192.168.110.111"
+    macaddr: "52:54:00:3e:b7:f7"
+  - name: "master1"
+    ipaddr: "192.168.110.112"
+    macaddr: "52:54:00:0b:55:46"
+  - name: "master2"
+    ipaddr: "192.168.110.113"
+    macaddr: "52:54:00:a8:99:b6"
+workers:
+  - name: "worker0"
+    ipaddr: "192.168.110.114"
+    macaddr: "52:54:00:26:8c:76"
+  - name: "worker1"
+    ipaddr: "192.168.110.115"
+    macaddr: "52:54:00:3d:71:8c"
+  - name: "worker2"
+    ipaddr: "192.168.110.116"
+    macaddr: "52:54:00:c4:7d:86"
+  - name: "worker3"
+    ipaddr: "192.168.110.117"
+    macaddr: "52:54:00:00:5a:70"
