@@ -1,0 +1,107 @@
+---
+- block:
+    - assert: 
+        that: "{{ helper.networkifacename is defined }}"
+    - set_fact: 
+        networkifacename: "{{ helper.networkifacename }}"
+  rescue:
+    - set_fact:
+        networkifacename: "{{ ansible_default_ipv4.interface }}"
+
+- block:
+  - set_fact:
+      critical_services:
+        - named
+        - haproxy
+        - dhcpd
+
+- block:
+  - set_fact:
+      registry:
+        - podman
+        - httpd-tools
+        - jq
+
+  - set_fact:
+      registry_services:
+        - named
+        - firewalld
+        - local-registry
+
+  - set_fact:
+      registry_host: "registry.{{ dns.clusterid }}.{{ dns.domain | lower  }}"
+      local_registry: "registry.{{ dns.clusterid }}.{{ dns.domain | lower  }}:5000"
+      release_image: "{{ setup_registry.remote_registry | default('quay.io') }}/{{ setup_registry.product_repo }}/{{ setup_registry.release_name }}:{{ setup_registry.release_tag }}"
+
+- block:
+  - set_fact:
+      packages:
+        - bind
+        - bind-utils
+        - firewalld
+        - haproxy
+        - vim
+        - bash-completion
+        - libselinux-python
+        - podman
+        - nfs-utils
+  
+  - set_fact:
+      dhcppkgs:
+        - dhcp
+
+  - set_fact:
+      syslinuxpkgs:
+        - syslinux
+
+  # - set_fact:
+  #     uefipkgs:
+  #       - shim-x64
+  #       - grub2-efi-x64
+
+  - set_fact:
+      owner: nfsnobody
+      group: nfsnobody
+  
+  - set_fact:
+      services:
+        - named
+        - haproxy
+        - rpcbind
+        - nfs-server
+        - nfs-lock
+        - nfs-idmap
+  when: ansible_distribution_major_version == "7"
+
+- block:
+  - set_fact:
+      packages:
+        - bind
+        - bind-utils
+        - firewalld
+        - haproxy
+        - vim
+        - bash-completion
+        - python3-libselinux
+        - podman
+        - nfs-utils
+  
+  - set_fact:
+      dhcppkgs:
+        - dhcp-server
+
+  - set_fact:
+      syslinuxpkgs:
+        - syslinux
+
+  - set_fact:
+      owner: nobody
+      group: nobody
+  
+  - set_fact:
+      services:
+        - named
+        - haproxy
+        - rpcbind
+        - nfs-server
+  when: ansible_distribution_major_version >= "8"

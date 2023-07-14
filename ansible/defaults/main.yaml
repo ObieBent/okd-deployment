@@ -43,3 +43,14 @@ workers:
   - name: "worker3"
     ipaddr: "192.168.110.117"
     macaddr: "52:54:00:00:5a:70"
+
+setup_registry:
+  deploy: false
+  autosync_registry: false
+  registry_image: docker.io/library/registry:2
+  local_repo: "ocp4/okd"
+  product_repo: "openshift"
+  release_name: "okd"
+  release_tag: "4.12.0-0.okd-2023-04-16-041331"
+  registry_user: "admin"
+  registry_password: "admin"
