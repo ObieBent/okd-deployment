@@ -6,6 +6,8 @@ openshift-install*
 .openshift_install.log
 .coreos_version
 .openshift_install_state.json
+.vscode/
 
 # User-generated config files
 install-config.yaml
+ansible/files/pull-secret*
