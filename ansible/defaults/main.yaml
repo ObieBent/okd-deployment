@@ -46,7 +46,7 @@ workers:
 
 setup_registry:
   deploy: true
-  autosync_registry: false
+  autosync_registry: true
   registry_image: docker.io/library/registry:2
   local_repo: "ocp4/okd"
   product_repo: "openshift"
