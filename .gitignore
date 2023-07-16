@@ -9,5 +9,5 @@ openshift-install*
 .vscode/
 
 # User-generated config files
-install-config.yaml
+# install-config.yaml
 # ansible/files/pull-secret*
