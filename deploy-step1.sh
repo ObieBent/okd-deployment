@@ -92,7 +92,7 @@ sed -i -e 's/mastersSchedulable: true/mastersSchedulable: false/' "$INSTALL_DIR/
 
 echo "Done. Now initializing cluster..."
 
-ansible-playbook  --user root ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -k -vv -l localhost"
+ansible-playbook  ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -b -vv -l localhost"
 
 # we do the bootstrap last so that all the actual infra can start bootstrapping ASAP
 for directory in hypervisor bootstrap; do
