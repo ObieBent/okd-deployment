@@ -96,7 +96,6 @@ backend machine-config-server
 {% for m in masters %}
     server {{ m.name | lower }} {{ m.ipaddr }}:22623 check
 {% endfor %}
-{% endif %}
 
 frontend ingress-http
     bind *:80
