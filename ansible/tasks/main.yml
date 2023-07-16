@@ -3,6 +3,7 @@
 
 - hosts: all
   vars_files:
+    - ../vars/main.yml
     - ../vars/ports.yml
     - ../defaults/main.yaml
   handlers:
