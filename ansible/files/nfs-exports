@@ -1,1 +1,1 @@
-/export	*(rw,sync,root_squash)
+/shares	*(rw,sync,root_squash)
