@@ -100,15 +100,16 @@
   retries: 3
   delay: 30
 
-# - name: Mirror the registry
-#   when: pod_state.stdout != ""
-#   block:
-#   - name: Generate the base64-encoded user name and password or token for your mirror registry
-#     shell: |
-#       registry_token=`echo -n "{{ setup_registry.registry_user  | default('admin') }}:{{ setup_registry.registry_password | default('admin') }}" | base64 -w0`
-#       jq '.auths += {"{{ local_registry }}": {"auth": "'$registry_token'","email": "noemail@localhost"}}' < ~/.openshift/pull-secret > ~/.openshift/pull-secret-updated
-#     args:
-#       creates: ~/.openshift/pull-secret-updated
+- name: Mirror the registry
+  when: pod_state.stdout != ""
+  block:
+  - name: Generate the base64-encoded user name and password or token for your mirror registry
+    shell: |
+      registry_token=`echo -n "{{ setup_registry.registry_user  | default('admin') }}:{{ setup_registry.registry_password | default('admin') }}" | base64 -w0`
+      jq '.auths += {"{{ local_registry }}": {"auth": "'$registry_token'","email": "noemail@localhost"}}' < ~/.openshift/pull-secret > ~/.openshift/pull-secret-updated
+    args:
+      creates: ~/.openshift/pull-secret-updated
+  tags: registry
 
 #   - name: Mirror the registry
 #     when: setup_registry.autosync_registry
