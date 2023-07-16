@@ -9,10 +9,7 @@
     - auth
     - certs
     - data
-    
-- name: Show python lib/site paths
-  python_requirements_info:
-  tags: checking
+
 
 - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
   run_once: true
