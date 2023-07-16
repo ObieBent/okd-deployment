@@ -93,12 +93,12 @@
   with_items:
     - "{{ registry_services }}"
 
-# - name: Get local registry pod
-#   shell: curl -u {{ setup_registry.registry_user | default('admin') }}:{{ setup_registry.registry_password | default('admin') }} -k https://{{ local_registry }}/v2/_catalog | grep repositories
-#   register: pod_state
-#   until: pod_state.stdout != ""
-#   retries: 3
-#   delay: 30
+- name: Get local registry pod
+  shell: curl -u {{ setup_registry.registry_user | default('admin') }}:{{ setup_registry.registry_password | default('admin') }} -k https://{{ local_registry }}/v2/_catalog | grep repositories
+  register: pod_state
+  until: pod_state.stdout != ""
+  retries: 3
+  delay: 30
 
 # - name: Mirror the registry
 #   when: pod_state.stdout != ""
