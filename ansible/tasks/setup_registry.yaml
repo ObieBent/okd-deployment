@@ -9,6 +9,7 @@
     - auth
     - certs
     - data
+    
 - name: Show python lib/site paths
   community.general.python_requirements_info:
   tag: checking
