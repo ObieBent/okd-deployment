@@ -124,7 +124,7 @@
 
   - name: Mirror the registry
     when: setup_registry.autosync_registry
-    shell: oc adm -a ~/.openshift/pull-secret-updated release mirror \
+    shell: /usr/local/bin/oc adm -a ~/.openshift/pull-secret-updated release mirror \
       --from={{ release_image }} \
       --to={{ local_registry }}/{{ setup_registry.local_repo }} \
       --to-release-image={{ local_registry }}/{{ setup_registry.local_repo }}:{{ setup_registry.release_tag }}
@@ -142,4 +142,4 @@
 
   - name: Mirror NFS image (x86_64)
     shell: |
-      oc image mirror quay.io/external_storage/nfs-client-provisioner:latest registry.{{ dns.clusterid }}.{{ dns.domain }}:5000/nfs-client-provisioner:latest -a ~/.openshift/pull-secret-updated
+      /usr/local/bin/oc image mirror quay.io/external_storage/nfs-client-provisioner:latest registry.{{ dns.clusterid }}.{{ dns.domain }}:5000/nfs-client-provisioner:latest -a ~/.openshift/pull-secret-updated
