@@ -40,6 +40,13 @@
   args:
     creates: /shares/registry/auth/htpasswd
 
+- name: Create the .openshift directory
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - ~/.openshift/
+
 - name: Copy Self Signed OpenSSL certificate
   copy:
     src: /shares/registry/certs/domain.crt
