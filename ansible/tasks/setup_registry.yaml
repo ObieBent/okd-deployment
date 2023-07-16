@@ -99,6 +99,7 @@
   until: pod_state.stdout != ""
   retries: 3
   delay: 30
+  tags: registry
 
 - name: Mirror the registry
   when: pod_state.stdout != ""
