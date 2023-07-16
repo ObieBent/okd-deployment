@@ -45,7 +45,7 @@ workers:
     macaddr: "52:54:00:00:5a:70"
 
 setup_registry:
-  deploy: false
+  deploy: true
   autosync_registry: false
   registry_image: docker.io/library/registry:2
   local_repo: "ocp4/okd"
