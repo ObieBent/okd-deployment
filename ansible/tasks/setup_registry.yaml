@@ -99,7 +99,6 @@
   until: pod_state.stdout != ""
   retries: 3
   delay: 30
-  tags: registry
 
 - name: Mirror the registry
   when: pod_state.stdout != ""
@@ -110,7 +109,6 @@
       jq '.auths += {"{{ local_registry }}": {"auth": "'$registry_token'","email": "noemail@localhost"}}' < ~/.openshift/pull-secret > ~/.openshift/pull-secret-updated
     args:
       creates: ~/.openshift/pull-secret-updated
-  tags: registry
 
 #   - name: Mirror the registry
 #     when: setup_registry.autosync_registry
