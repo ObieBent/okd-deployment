@@ -7,16 +7,16 @@
 # 3) ssh_private_key_path: path to the private ssh key that gets you passwordless access to the user.
 
 # network resource you wish to deploy to.
-# variable "host" {
-#   type    = string
-#   default = "hv3.okd.example.com"
-# }
+variable "host" {
+  type    = string
+  default = "ocp.buzz.lab"
+}
 
 # user to authenticate to the resource as.
-# variable "user" {
-#   type    = string
-#   default = "root"
-# }
+variable "user" {
+  type    = string
+  default = "root"
+}
 
 # path to private ssh key to allow passwordless access to the user account.
 # variable "ssh_private_key_path" {
