@@ -15,7 +15,7 @@ resource "libvirt_volume" "bootstrap_root_disk" {
 
     provisioner "remote-exec" {
         inline = [
-            "dd if=${var.rootfs} of=/home/${self.name} oflag=direct bs=10M"
+            "dd if=${var.rootfs} of=/dev/${self.pool}/${self.name} oflag=direct bs=10M"
         ]
 
         connection {
