@@ -53,12 +53,12 @@ variable "rootfs" {
     description = "libvirt volume rootfs id"
 }
 
-# variable "host" {
-#     type = string
-#     description = "hostname of libvirt virt host"
-# }
+variable "host" {
+    type = string
+    description = "hostname of libvirt virt host"
+}
 
-# variable "ssh_private_key" {
-#     type = string
-#     description = "SSH private key file"
-# }
+variable "ssh_private_key" {
+    type = string
+    description = "SSH private key file"
+}

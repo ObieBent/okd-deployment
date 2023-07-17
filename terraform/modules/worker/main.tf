@@ -3,7 +3,7 @@ terraform {
   required_providers {
     libvirt = {
       source  = "dmacvicar/libvirt"
-      version = "0.6.11"
+    #   version = "0.6.11"
     }
   }
 }
@@ -25,12 +25,12 @@ resource "libvirt_volume" "worker_root_disk" {
             "dd if=${var.rootfs} of=/dev/${self.pool}/${self.name} oflag=direct bs=10M"
         ]
 
-        # connection {
-        #     type        = "ssh"
-        #     user        = "root"
-        #     host        = var.host
-        #     private_key = var.ssh_private_key
-        # }
+        connection {
+            type        = "ssh"
+            user        = "root"
+            host        = var.host
+            private_key = var.ssh_private_key
+        }
     }
 }
 
