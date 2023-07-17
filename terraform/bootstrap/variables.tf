@@ -18,7 +18,7 @@ variable "user" {
   default = "root"
 }
 
-path to private ssh key to allow passwordless access to the user account.
+# path to private ssh key to allow passwordless access to the user account.
 variable "ssh_private_key_path" {
   type    = string
   default = "~/.ssh/id_rsa"
