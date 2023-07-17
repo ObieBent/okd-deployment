@@ -21,7 +21,7 @@ set -euo pipefail
 # DNS.
 
 CLUSTER_SUBDOMAIN="cluster-okd.buzz.lab"
-HYPERVISOR="localhost"
+HYPERVISOR="ocp.buzz.lab"
 # HYPERVISOR_1="hv1.okd.example.com"
 # HYPERVISOR_2="hv2.okd.example.com"
 # HYPERVISOR_3="hv3.okd.example.com"
