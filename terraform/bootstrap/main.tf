@@ -22,7 +22,7 @@ module "stacks_bootstrap" {
   source = "../modules/bootstrap"
 
   root_pool      = "ssd"
-  ign_pool       = "iso"
+  ign_pool       = "ssd"
   root_disk_size = var.bootstrap_root_disk_size
   ign_file       = file("${path.module}/../../config/bootstrap.ign")
   mac_addr       = var.bootstrap_mac_addr
@@ -30,6 +30,6 @@ module "stacks_bootstrap" {
   fcos_version   = var.coreos_version
   rootfs         = module.fcos_base.fcos_base_rootfs
 
-#   host            = var.host
-#   ssh_private_key = file(var.ssh_private_key_path)
+  host            = var.host
+  ssh_private_key = file(var.ssh_private_key_path)
 }

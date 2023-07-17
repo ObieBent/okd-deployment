@@ -1,3 +1,3 @@
 [all]
-ocp  	    ansible_connection=94.130.139.116
+ocp  	    ansible_host=94.130.139.116
 helper    	ansible_host=192.168.110.9

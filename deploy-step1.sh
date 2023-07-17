@@ -69,7 +69,7 @@ get_installer() {
     else
         echo "Downloading OKD release $OPENSHIFT_INSTALL_RELEASE..."
         curl -LO $OKD_DOWNLOAD_URL
-        tar -xf "openshift-install-linux-$OPENSHIFT_INSTALL_RELEASE.tar.gz"
+        tar -zxf "openshift-install-mac-$OPENSHIFT_INSTALL_RELEASE.tar.gz"
     fi
     popd
     mv "$TEMPDIR/openshift-install" ${OPENSHIFT_INSTALL}
@@ -92,7 +92,7 @@ sed -i -e 's/mastersSchedulable: true/mastersSchedulable: false/' "$INSTALL_DIR/
 
 echo "Done. Now initializing cluster..."
 
-ansible-playbook  -i ansible/inventory ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -u root -vv"
+ansible-playbook  -i ansible/inventory ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -u root -vvv"
 
 # we do the bootstrap last so that all the actual infra can start bootstrapping ASAP
 for directory in hypervisor bootstrap; do

@@ -22,18 +22,18 @@ module "stacks_masters" {
   source = "../modules/master"
 
   root_pool      = "ssd"
-  ign_pool       = "iso"
+  ign_pool       = "ssd"
   ign_file       = file("${path.module}/../../config/master.ign")
   mac_addrs      = var.master_mac_addrs
   ram_size       = var.master_ram_size
   vcpu_count     = var.master_vcpu_count
   root_disk_size = var.root_disk_size
-  bridge_name    = "br0"
+  bridge_name    = "ocpnet"
   fcos_version   = var.coreos_version
   rootfs         = module.fcos_base.fcos_base_rootfs
 
-#   host            = var.host
-#   ssh_private_key = file(var.ssh_private_key_path)
+  host            = var.host
+  ssh_private_key = file(var.ssh_private_key_path)
 }
 
 module "stacks_workers" {
@@ -52,6 +52,6 @@ module "stacks_workers" {
   fcos_version       = var.coreos_version
   rootfs             = module.fcos_base.fcos_base_rootfs
 
-#   host            = var.host
-#   ssh_private_key = file(var.ssh_private_key_path)
+  host            = var.host
+  ssh_private_key = file(var.ssh_private_key_path)
 }

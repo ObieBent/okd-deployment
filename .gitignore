@@ -7,6 +7,7 @@ openshift-install*
 .coreos_version
 .openshift_install_state.json
 .vscode/
+qemu-img
 
 # User-generated config files
 # install-config.yaml
