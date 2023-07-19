@@ -115,6 +115,15 @@ for directory in bootstrap hypervisor; do
     popd
 done
 
+sleep 120
+
+for directory in hypervisor; do
+    pushd "$TERRAFORM_HOSTS_BASE_DIR/$directory"
+    [[ -d .terraform ]] || terraform init
+    terraform apply --var "coreos_version=$COREOS_VERSION" --auto-approve
+    popd
+done
+
 echo "Done."
 
 echo "Now we wait for the bootstrap to complete."
