@@ -53,8 +53,8 @@ echo "Bootstrapping cluster using Fedora CoreOS $COREOS_VERSION."
 echo "$COREOS_VERSION" > .coreos_version
 
 PROJECT_DIR="$PWD"
-HTTPD_DIR="/var/www/html"
-IGNITION_DIR="$HTTPD_DIR/config"
+# HTTPD_DIR="/var/www/html"
+# IGNITION_DIR="$HTTPD_DIR/config"
 INSTALL_DIR="$PROJECT_DIR/config"
 MONITORING_DIR="$PROJECT_DIR/monitoring"
 KUBECONFIG_PATH="$INSTALL_DIR/auth/kubeconfig"
@@ -97,12 +97,12 @@ echo "Copy ignition files to the web server directory"
 mkdir -p $IGNITION_DIR
 cp -R $INSTALL_DIR/*.ign $IGNITION_DIR
 
-echo " " 
-echo "Change ownership and permission of the web server directory"
-chcon -R -t httpd_sys_content_t $IGNITION_DIR
-chown -R apache: $IGNITION_DIR
-chmod 755 $IGNITION_DIR
-echo " " 
+# echo " " 
+# echo "Change ownership and permission of the web server directory"
+# chcon -R -t httpd_sys_content_t $IGNITION_DIR
+# chown -R apache: $IGNITION_DIR
+# chmod 755 $IGNITION_DIR
+# echo " " 
 
 echo "Done. Now initializing cluster..."
 
