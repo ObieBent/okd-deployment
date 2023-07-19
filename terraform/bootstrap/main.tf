@@ -24,7 +24,7 @@ module "stacks_bootstrap" {
   root_pool      = "ssd"
   ign_pool       = "ssd"
   root_disk_size = var.bootstrap_root_disk_size
-  ign_file       = "file:///var/www/html/config/bootstrap.ign"
+  ign_file       = file("${path.module}/../../config/bootstrap.ign")
   mac_addr       = var.bootstrap_mac_addr
   bridge_name    = "ocpnet"
   fcos_version   = var.coreos_version

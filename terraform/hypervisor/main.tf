@@ -23,7 +23,7 @@ module "stacks_masters" {
 
   root_pool      = "ssd"
   ign_pool       = "ssd"
-  ign_file       = "file:///var/www/html/config/master.ign"
+  ign_file       = file("${path.module}/../../config/master.ign")
   mac_addrs      = var.master_mac_addrs
   ram_size       = var.master_ram_size
   vcpu_count     = var.master_vcpu_count
@@ -41,7 +41,7 @@ module "stacks_workers" {
 
   root_pool          = "ssd"
   ign_pool           = "ssd"
-  ign_file           = "file:///var/www/html/config/worker.ign"
+  ign_file           = file("${path.module}/../../config/worker.ign")
   mac_addrs          = var.worker_mac_addrs
   ram_size           = var.worker_ram_size
   vcpu_count         = var.worker_vcpu_count
