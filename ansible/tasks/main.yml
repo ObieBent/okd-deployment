@@ -95,6 +95,15 @@
       notify:
         - restart haproxy
 
+    - name: Set HTTP server and prepare OCP4 bios
+      block:
+      - name: Copy httpd conf file
+        copy:
+          src: ../files/httpd.conf
+          dest: /etc/httpd/conf/httpd.conf
+        notify:
+          - restart httpd
+
   - name: Start firewalld service
     systemd:
       name: firewalld
@@ -115,6 +124,9 @@
 
   - name: Best effort SELinux repair - DNS
     shell: "restorecon -vR /var/named || true"
+  
+  - name: Best effort SELinux repair - Apache
+    shell: "restorecon -vR /var/www/html || true"
 
 
   - name: Create NFS export directory

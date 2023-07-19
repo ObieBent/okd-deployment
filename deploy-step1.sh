@@ -53,6 +53,7 @@ echo "Bootstrapping cluster using Fedora CoreOS $COREOS_VERSION."
 echo "$COREOS_VERSION" > .coreos_version
 
 PROJECT_DIR="$PWD"
+HTTPD_DIR="/var/www/html"
 INSTALL_DIR="$PROJECT_DIR/config"
 MONITORING_DIR="$PROJECT_DIR/monitoring"
 KUBECONFIG_PATH="$INSTALL_DIR/auth/kubeconfig"
@@ -89,6 +90,17 @@ cp ./install-config.yaml "$INSTALL_DIR"
 sed -i -e 's/mastersSchedulable: true/mastersSchedulable: false/' "$INSTALL_DIR/manifests/cluster-scheduler-02-config.yml"
 
 "${OPENSHIFT_INSTALL}" create ignition-configs --dir="$INSTALL_DIR"
+
+echo " " 
+echo "Copy ignition files to the web server directory"
+cp -R $INSTALL_DIR $HTTPD_DIR/
+
+echo " " 
+echo "Change ownership and permission of the web server directory"
+chcon -R -t httpd_sys_content_t $HTTPD_DIR/config
+chown -R apache: $HTTPD_DIR/config
+chmod 755 $HTTPD_DIR/config
+
 
 echo "Done. Now initializing cluster..."
 
