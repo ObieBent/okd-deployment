@@ -119,4 +119,4 @@ echo "Done."
 
 echo "Now we wait for the bootstrap to complete."
 
-"${OPENSHIFT_INSTALL}" --dir=config wait-for bootstrap-complete --log-level=debug
+# "${OPENSHIFT_INSTALL}" --dir=config wait-for bootstrap-complete --log-level=debug
