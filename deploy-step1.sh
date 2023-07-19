@@ -108,8 +108,7 @@ echo "Done. Now initializing cluster..."
 
 # ansible-playbook  -i ansible/inventory ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -u root -vvv"
 
-# we do the bootstrap last so that all the actual infra can start bootstrapping ASAP
-for directory in hypervisor bootstrap; do
+for directory in bootstrap hypervisor; do
     pushd "$TERRAFORM_HOSTS_BASE_DIR/$directory"
     [[ -d .terraform ]] || terraform init
     terraform apply --var "coreos_version=$COREOS_VERSION" --auto-approve
