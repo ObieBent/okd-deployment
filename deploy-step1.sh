@@ -93,9 +93,9 @@ sed -i -e 's/mastersSchedulable: true/mastersSchedulable: false/' "$INSTALL_DIR/
 "${OPENSHIFT_INSTALL}" create ignition-configs --dir="$INSTALL_DIR"
 
 echo " " 
-echo "Copy ignition files to the web server directory"
-mkdir -p $IGNITION_DIR
-cp -R $INSTALL_DIR/*.ign $IGNITION_DIR
+# echo "Copy ignition files to the web server directory"
+# mkdir -p $IGNITION_DIR
+# cp -R $INSTALL_DIR/*.ign $IGNITION_DIR
 
 # echo " " 
 # echo "Change ownership and permission of the web server directory"
