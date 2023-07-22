@@ -35,7 +35,7 @@ resource "libvirt_volume" "base_master_root_disk" {
 }
 
 resource "libvirt_volume" "master_root_disk" {
-  name = "base_bootstrap_root"
+  name = "master_root"
   base_volume_id = libvirt_volume.base_master_root_disk.id
   pool = var.root_pool
   size = var.root_disk_size 
