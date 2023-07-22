@@ -82,4 +82,16 @@ resource "libvirt_domain" "workers" {
     # disk {
     #     block_device = element(var.data_disks, count.index)
     # }
+
+    console {
+      type        = "pty"
+      target_port = "0"
+      target_type = "serial"
+    }
+
+    console {
+      type        = "pty"
+      target_type = "virtio"
+      target_port = "1"
+    }
 }

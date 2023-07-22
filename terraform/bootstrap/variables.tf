@@ -31,7 +31,7 @@ variable bootstrap_mac_addr {
 
 # bootstrap root disk size
 variable bootstrap_root_disk_size {
-  default = 42949672960 # 40 GiB (any less and the bootstrap will fail due to running out of tmpfs space)
+  default = "40gb" # 40 GiB (any less and the bootstrap will fail due to running out of tmpfs space)
 }
 
 # Fedora CoreOS version. left blank because this is always set by the tfvars.

@@ -54,4 +54,16 @@ resource "libvirt_domain" "masters" {
     disk {
         volume_id = element(libvirt_volume.master_root_disk.*.id, count.index)
     }
+
+    console {
+      type        = "pty"
+      target_port = "0"
+      target_type = "serial"
+    }
+
+    console {
+      type        = "pty"
+      target_type = "virtio"
+      target_port = "1"
+    }
 }

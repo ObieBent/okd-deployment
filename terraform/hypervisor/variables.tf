@@ -26,7 +26,7 @@ variable "ssh_private_key_path" {
 
 # root disk size
 variable "root_disk_size" {
-  default = 64424509440 # 60 GiB
+  default = "60gb" # 60 GiB
 }
 
 # Fedora CoreOS version. left blank because this is always set on the command line.

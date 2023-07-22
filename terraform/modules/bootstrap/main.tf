@@ -52,4 +52,16 @@ resource "libvirt_domain" "bootstrap" {
     video {
         type = "virtio"
     }
+
+    console {
+      type        = "pty"
+      target_port = "0"
+      target_type = "serial"
+    }
+
+    console {
+      type        = "pty"
+      target_type = "virtio"
+      target_port = "1"
+    }
 }
