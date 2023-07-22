@@ -37,7 +37,7 @@ resource "libvirt_volume" "base_worker_root_disk" {
 
 resource "libvirt_volume" "worker_root_disk" {
   name = "worker_root"
-  base_volume_id = libvirt_volume.base_worker_root_disk.id
+  base_volume_id = element(libvirt_volume.base_worker_root_disk.*.id, count.index)
   pool = var.root_pool
   size = var.root_disk_size 
 }
