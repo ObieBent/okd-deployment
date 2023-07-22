@@ -36,6 +36,7 @@ variable "vcpu_count" {
 variable "root_disk_size" {
     type = number
     description = "Size in bytes to allocate for root disk"
+    default = 64424509440
 }
 
 # variable "data_disks" {

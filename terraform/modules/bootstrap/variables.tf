@@ -29,6 +29,7 @@ variable "mac_addr" {
 variable "root_disk_size" {
     type = number
     description = "Size in bytes to allocate for root disk"
+    default = 42949672960
 }
 
 variable "bridge_name" {
