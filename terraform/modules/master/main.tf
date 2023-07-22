@@ -14,7 +14,7 @@ resource "libvirt_ignition" "master_ign" {
     content = var.ign_file
 }
 
-resource "libvirt_volume" "master_root_disk" {
+resource "libvirt_volume" "base_master_root_disk" {
     count = length(var.mac_addrs)
     name = "master_${replace(element(var.mac_addrs, count.index), ":", "")}_root"
     pool = var.root_pool
@@ -32,6 +32,13 @@ resource "libvirt_volume" "master_root_disk" {
             private_key = var.ssh_private_key
         }
     }
+}
+
+resource "libvirt_volume" "master_root_disk" {
+  name = "base_bootstrap_root"
+  base_volume_id = libvirt_volume.base_master_root_disk.id
+  pool = var.root_pool
+  size = var.root_disk_size 
 }
 
 resource "libvirt_domain" "masters" {

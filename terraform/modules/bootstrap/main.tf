@@ -8,8 +8,8 @@ terraform {
   }
 }
 
-resource "libvirt_volume" "bootstrap_root_disk" {
-    name = "bootstrap_root"
+resource "libvirt_volume" "base_bootstrap_root_disk" {
+    name = "base_bootstrap_root"
     pool = var.root_pool
     size = var.root_disk_size
 
@@ -26,6 +26,14 @@ resource "libvirt_volume" "bootstrap_root_disk" {
         }
     }
 }
+
+resource "libvirt_volume" "bootstrap_root_disk" {
+  name = "base_bootstrap_root"
+  base_volume_id = libvirt_volume.base_bootstrap_root_disk.id
+  pool = var.root_pool
+  size = var.root_disk_size 
+}
+
 
 resource "libvirt_ignition" "bootstrap_ign" {
     pool = var.ign_pool
