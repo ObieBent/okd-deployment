@@ -50,7 +50,7 @@ module "stacks_workers" {
 #   data_disks         = var.data_disks
   bridge_name        = "ocpnet"
   fcos_version       = var.coreos_version
-  # rootfs             = module.fcos_base.fcos_base_rootfs
+  rootfs             = module.fcos_base.fcos_base_rootfs
 
   host            = var.host
   ssh_private_key = file(var.ssh_private_key_path)
