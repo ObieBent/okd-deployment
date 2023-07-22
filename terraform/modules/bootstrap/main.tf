@@ -25,7 +25,7 @@ resource "libvirt_volume" "bootstrap_root_disk" {
 #             private_key = var.ssh_private_key
 #         }
 #     }
-# }
+}
 
 resource "libvirt_ignition" "bootstrap_ign" {
     pool = var.ign_pool
