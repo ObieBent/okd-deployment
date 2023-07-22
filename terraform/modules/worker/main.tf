@@ -20,18 +20,18 @@ resource "libvirt_volume" "worker_root_disk" {
     pool = var.root_pool
     size = var.root_disk_size
 
-    # provisioner "remote-exec" {
-    #     inline = [
-    #         "dd if=${var.rootfs} of=/var/lib/libvirt/pool/ssd/${self.name} oflag=direct bs=10M"
-    #     ]
+    provisioner "remote-exec" {
+        inline = [
+            "dd if=${var.rootfs} of=/var/lib/libvirt/pool/ssd/${self.name} oflag=direct bs=10M"
+        ]
 
-    #     connection {
-    #         type        = "ssh"
-    #         user        = "root"
-    #         host        = var.host
-    #         private_key = var.ssh_private_key
-    #     }
-    # }
+        connection {
+            type        = "ssh"
+            user        = "root"
+            host        = var.host
+            private_key = var.ssh_private_key
+        }
+    }
 }
 
 # resource "libvirt_volume" "worker_ceph_metadata_disk" {
