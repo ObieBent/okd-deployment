@@ -24,7 +24,4 @@
       creates: "fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2"
 
   - name: Resize the qcow2 image in /var/lib/libvirt/pool/ssd
-    ansible.builtin.command:
-      chdir: /var/tmp
-      cmd: "qemu-img resize fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/pool/ssd/"
-      creates: "/var/lib/libvirt/pool/ssd/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2"
+    shell: 'qemu-img resize /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/pool/ssd/'
