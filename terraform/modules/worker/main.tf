@@ -14,7 +14,7 @@ resource "libvirt_ignition" "worker_ign" {
     content = var.ign_file
 }
 
-resource "libvirt_volume" "base_worker_root_disk" {
+resource "libvirt_volume" "worker_root_disk" {
     count = length(var.mac_addrs)
     name = "worker_${replace(element(var.mac_addrs, count.index), ":", "")}_root"
     pool = var.root_pool
@@ -34,13 +34,6 @@ resource "libvirt_volume" "base_worker_root_disk" {
     }
 }
 
-
-resource "libvirt_volume" "worker_root_disk" {
-  name = "worker_root"
-  base_volume_id = element(libvirt_volume.base_worker_root_disk.*.id, count.index)
-  pool = var.root_pool
-  size = var.root_disk_size 
-}
 
 
 # resource "libvirt_volume" "worker_ceph_metadata_disk" {
