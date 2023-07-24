@@ -14,6 +14,7 @@ resource "libvirt_ignition" "master_ign" {
     content = var.ign_file
 }
 
+
 resource "libvirt_volume" "master_root_disk" {
     count = length(var.mac_addrs)
     name = "master_${replace(element(var.mac_addrs, count.index), ":", "")}_root"
