@@ -106,7 +106,7 @@ echo " "
 
 echo "Done. Now initializing cluster..."
 
-# ansible-playbook  -i ansible/inventory ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -u root -vvv"
+ansible-playbook  -i ansible/inventory ansible/main.yml --extra-vars "coreos_version=${COREOS_VERSION} -u root -vvv"
 
 for directory in bootstrap ; do
     pushd "$TERRAFORM_HOSTS_BASE_DIR/$directory"
