@@ -11,7 +11,6 @@ terraform {
 resource "libvirt_volume" "bootstrap_root_disk" {
     name = "bootstrap_root"
     pool = var.root_pool
-    base_volume_id = libvirt_volume.fcos_base_rootfs.id
     size = var.root_disk_size
 
     # provisioner "remote-exec" {
