@@ -26,8 +26,8 @@
   - name: Convert qcow2 to raw image file in /var/lib/libvirt/images
     ansible.builtin.command:
       chdir: /var/tmp
-      cmd: "qemu-img convert -f qcow2 -O raw fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/images/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
-      creates: "/var/lib/libvirt/images/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
+      cmd: "qemu-img convert -f qcow2 -O raw fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/pool/ssd/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
+      creates: "/var/lib/libvirt/pool/ssd/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
 
   # - name: Resize the qcow2 image in /var/lib/libvirt/pool/ssd
   #   shell: 'qemu-img resize /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/pool/ssd/'
