@@ -1,1 +1,1 @@
-/shares	*(rw,sync,root_squash)
+/shares/helper	*(rw,sync,root_squash)

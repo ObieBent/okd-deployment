@@ -131,7 +131,7 @@
 
   - name: Create NFS export directory
     file:
-      path: /export
+      path: /shares/helper
       state: directory
       mode: 0777
       owner: "{{ owner }}"
