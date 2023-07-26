@@ -58,3 +58,9 @@ setup_registry:
 nfs:
   server: "192.168.110.9"
   path: "/shares/helper"
+
+chronyconfig:
+  enabled: true
+  content:
+    - server: helper.cluster-okd.buzz.lab
+      options: iburst
