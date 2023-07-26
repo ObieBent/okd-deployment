@@ -10,5 +10,5 @@ openshift-install*
 qemu-img
 
 # User-generated config files
-# install-config.yaml
-# ansible/files/pull-secret*
+install-config.yaml
+ansible/files/pull-secret*
