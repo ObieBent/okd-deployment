@@ -145,4 +145,4 @@
 
   - name: Mirror NFS image (x86_64)
     shell: |
-      /usr/local/bin/oc image mirror quay.io/external_storage/nfs-client-provisioner:latest registry.{{ dns.clusterid }}.{{ dns.domain }}:5000/nfs-client-provisioner:latest -a ~/.openshift/pull-secret-updated
+      /usr/local/bin/oc image mirror k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2 registry.{{ dns.clusterid }}.{{ dns.domain }}:5000/nfs-client-provisioner:latest -a ~/.openshift/pull-secret-updated
