@@ -97,15 +97,13 @@
   with_items:
   - internal
   - public
-  tags: registry
-  
+
 - name: Restarting regitry services
   service:
     name: "{{ item }}"
     state: restarted
   with_items:
     - "{{ registry_services }}"
-  tags: registry
 
 - name: Get local registry pod
   shell: curl -u {{ setup_registry.registry_user | default('admin') }}:{{ setup_registry.registry_password | default('admin') }} -k https://{{ local_registry }}/v2/_catalog | grep repositories
