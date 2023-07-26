@@ -9,8 +9,8 @@ terraform {
 }
 
 resource "libvirt_volume" "fcos_base_rootfs" {
-    source = "file:///shares/images/fedora-coreos-${var.fcos_version}-qemu.x86_64.qcow2"
-    name = "fedora-coreos-${var.fcos_version}-qemu.x86_64.qcow2"
+    source = "file:///shares/images/fedora-coreos-37.20221127.3.0-qemu.x86_64.qcow2"
+    name = "fedora-coreos-37.20221127.3.0-qemu.x86_64.qcow2"
     pool = var.pool
     format = "qcow2"
 }
