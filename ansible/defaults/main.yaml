@@ -64,3 +64,5 @@ chronyconfig:
   content:
     - server: helper.cluster-okd.buzz.lab
       options: iburst
+
+machineconfig_path: ../machineconfig

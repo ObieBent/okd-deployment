@@ -239,6 +239,7 @@
         dest: "{{ machineconfig_path }}/99-{{item}}-chrony-configuration.yaml"
       loop:
         - master
+        
     - name: Generate Chrony machineconfig
       template:
         src: ../templates/chrony-machineconfig.j2
