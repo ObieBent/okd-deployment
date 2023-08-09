@@ -15,14 +15,14 @@ variable "host" {
 # user to authenticate to the resource as.
 variable "user" {
   type    = string
-  default = "root"
+  default = "borisassogba"
 }
 
 # path to private ssh key to allow passwordless access to the user account.
-variable "ssh_private_key_path" {
-  type    = string
-  default = "~/.ssh/id_rsa"
-}
+# variable "ssh_private_key_path" {
+#   type    = string
+#   default = "~/.ssh/id_rsa"
+# }
 
 # root disk size
 variable "root_disk_size" {

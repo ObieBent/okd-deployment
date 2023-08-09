@@ -69,7 +69,7 @@ variable "host" {
     description = "hostname of libvirt virt host"
 }
 
-variable "ssh_private_key" {
-    type = string
-    description = "SSH private key file"
-}
+# variable "ssh_private_key" {
+#     type = string
+#     description = "SSH private key file"
+# }

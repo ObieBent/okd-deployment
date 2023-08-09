@@ -29,7 +29,11 @@ resource "libvirt_volume" "worker_root_disk" {
             type        = "ssh"
             user        = "root"
             host        = var.host
-            private_key = var.ssh_private_key
+            # Allow to use ssh private key protected by a passphrase
+            # Please load this private key before
+            # ssh-add = ~/.ssh/id_rsa
+            agent       = true 
+            # private_key = var.ssh_private_key
         }
     }
 }

@@ -33,7 +33,7 @@ module "stacks_masters" {
   rootfs         = module.fcos_base.fcos_base_rootfs
 
   host            = var.host
-  ssh_private_key = file(var.ssh_private_key_path)
+  # ssh_private_key = file(var.ssh_private_key_path)
 }
 
 module "stacks_workers" {
@@ -53,5 +53,5 @@ module "stacks_workers" {
   rootfs             = module.fcos_base.fcos_base_rootfs
 
   host            = var.host
-  ssh_private_key = file(var.ssh_private_key_path)
+  # ssh_private_key = file(var.ssh_private_key_path)
 }
