@@ -20,7 +20,7 @@ helper_disk_creation() {
 
 # Helper Installation
 helper_installation() {
-    info "Deploying Alma Linux 8.7 on the Bastion server"
+    info "Deploying Alma Linux 8.7 on the Helper server"
     virt-install \
     --network network:ocpnet \
     --name helper \
