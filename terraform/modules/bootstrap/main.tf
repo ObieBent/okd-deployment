@@ -20,9 +20,13 @@ resource "libvirt_volume" "bootstrap_root_disk" {
 
         connection {
             type        = "ssh"
-            user        = "root"
+            user        = "borisassogba"
             host        = var.host
-            private_key = var.ssh_private_key
+            # Allow to use ssh private key protected by a passphrase
+            # Please load this private key before
+            # ssh-add = ~/.ssh/id_rsa
+            agent       = true 
+            # private_key = var.ssh_private_key
         }
     }
 }
