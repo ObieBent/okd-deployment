@@ -27,7 +27,7 @@ helper_installation() {
     --os-type=linux \
     --location /srv/libvirt/hdd/iso/AlmaLinux-9.3-x86_64-minimal.iso \
     --ram=8192 \
-    --os-variant=almalinux8 \
+    --os-variant=almalinux9 \
     --vcpus=4 \
     --disk /srv/libvirt/hdd/helper.qcow2 --boot hd,menu=on\
     --nographics \
