@@ -31,16 +31,15 @@ module "stacks_masters" {
   bridge_name    = "ocpnet"
   fcos_version   = var.coreos_version
   rootfs         = module.fcos_base.fcos_base_rootfs
-
-  host            = var.host
+  host           = var.host
   # ssh_private_key = file(var.ssh_private_key_path)
 }
 
 module "stacks_workers" {
   source = "../modules/worker"
 
-  root_pool          = "ssd"
-  ign_pool           = "ssd"
+  root_pool          = "hdd"
+  ign_pool           = "hdd"
   ign_file           = file("${path.module}/../../config/worker.ign")
   mac_addrs          = var.worker_mac_addrs
   ram_size           = var.worker_ram_size
@@ -51,7 +50,6 @@ module "stacks_workers" {
   bridge_name        = "ocpnet"
   fcos_version       = var.coreos_version
   rootfs             = module.fcos_base.fcos_base_rootfs
-
-  host            = var.host
+  host               = var.host
   # ssh_private_key = file(var.ssh_private_key_path)
 }

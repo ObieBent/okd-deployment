@@ -36,7 +36,7 @@ variable "vcpu_count" {
 variable "root_disk_size" {
     type = number
     description = "Size in bytes to allocate for root disk"
-    default = 64424509440
+    default = 85899345920
 }
 
 variable "bridge_name" {
@@ -59,7 +59,7 @@ variable "host" {
     description = "hostname of libvirt virt host"
 }
 
-variable "ssh_private_key" {
-    type = string
-    description = "SSH private key file"
-}
+# variable "ssh_private_key" {
+#     type = string
+#     description = "SSH private key file"
+# }

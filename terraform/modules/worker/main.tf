@@ -22,12 +22,12 @@ resource "libvirt_volume" "worker_root_disk" {
 
     provisioner "remote-exec" {
         inline = [
-            "dd if=${var.rootfs} of=/var/lib/libvirt/pool/ssd/${self.name} oflag=direct bs=10M"
+            "dd if=${var.rootfs} of=/srv/libvirt/hdd/${self.name} oflag=direct bs=10M"
         ]
 
         connection {
             type        = "ssh"
-            user        = "root"
+            user        = "borisassogba"
             host        = var.host
             # Allow to use ssh private key protected by a passphrase
             # Please load this private key before

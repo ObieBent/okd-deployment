@@ -4,8 +4,8 @@ helper:
   name: "helper"
   ipaddr: "192.168.110.9"
 dns:
-  domain: "buzz.lab"
-  clusterid: "cluster-okd"
+  domain: "bme.lab"
+  clusterid: "bomar"
   forwarder1: "185.12.64.1"
   forwarder2: "185.12.64.2"
 dhcp:
@@ -62,7 +62,7 @@ nfs:
 chronyconfig:
   enabled: true
   content:
-    - server: helper.cluster-okd.buzz.lab
+    - server: helper.bomar.bme.lab
       options: iburst
 
 machineconfig_path: ../machineconfig

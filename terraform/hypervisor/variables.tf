@@ -9,7 +9,7 @@
 # network resource you wish to deploy to.
 variable "host" {
   type    = string
-  default = "ocp.buzz.lab"
+  default = "okd.bme.lab"
 }
 
 # user to authenticate to the resource as.
@@ -26,7 +26,7 @@ variable "user" {
 
 # root disk size
 variable "root_disk_size" {
-  default = 64424509440 # 60 GiB
+  default = 85899345920 # 80 GiB
 }
 
 # Fedora CoreOS version. left blank because this is always set on the command line.
@@ -83,7 +83,7 @@ variable "num_masters" {
 
 # how many MiB of ram to allocate for the masters
 variable "master_ram_size" {
-  default = 12288
+  default = 16384
 }
 
 # how many vcpus to allocate for the masters

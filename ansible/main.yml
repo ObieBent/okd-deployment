@@ -29,5 +29,5 @@
   #     cmd: "qemu-img convert -f qcow2 -O raw fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/pool/ssd/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
   #     creates: "/var/lib/libvirt/pool/ssd/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
 
-  - name: Resize the qcow2 image in /var/lib/libvirt/pool/ssd
-    shell: 'qemu-img resize /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var/lib/libvirt/pool/ssd/'
+  - name: Resize the qcow2 image in /srv/libvirt/ssd
+    shell: 'qemu-img resize /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var//srv/libvirt/ssd'

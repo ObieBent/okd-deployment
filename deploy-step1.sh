@@ -20,8 +20,8 @@ set -euo pipefail
 # Note that the cluster subdomain has to match whatever you set up for
 # DNS.
 
-CLUSTER_SUBDOMAIN="cluster-okd.buzz.lab"
-HYPERVISOR="ocp.buzz.lab"
+CLUSTER_SUBDOMAIN="bomar.bme.lab"
+HYPERVISOR="okd.bme.lab"
 # HYPERVISOR_1="hv1.okd.example.com"
 # HYPERVISOR_2="hv2.okd.example.com"
 # HYPERVISOR_3="hv3.okd.example.com"
@@ -38,7 +38,7 @@ done
 
 if [[ -z ${OPENSHIFT_INSTALL_RELEASE+x} ]]; then
     # get the latest okd release from the repo
-    OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.12 | head -n1)"
+    OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.14 | tail -n1)"
     OKD_DOWNLOAD_URL="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].assets[] | select(.name | contains("openshift-install-linux-4.12.0-0.okd-2023-04-16-041331")) | .browser_download_url')"
 fi
 
