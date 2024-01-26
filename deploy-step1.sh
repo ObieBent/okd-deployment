@@ -38,8 +38,8 @@ done
 
 if [[ -z ${OPENSHIFT_INSTALL_RELEASE+x} ]]; then
     # get the latest okd release from the repo
-    OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.14 | tail -n1)"
-    OKD_DOWNLOAD_URL="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].assets[] | select(.name | contains("openshift-install-linux-4.12.0-0.okd-2023-04-16-041331")) | .browser_download_url')"
+    OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.14 | head -n1)"
+    OKD_DOWNLOAD_URL="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].assets[] | select(.name | contains("openshift-install-linux-4.14.0-0.okd-2024-01-06-084517")) | .browser_download_url')"
 fi
 
 echo "Using OKD release $OPENSHIFT_INSTALL_RELEASE to bring up cluster."
