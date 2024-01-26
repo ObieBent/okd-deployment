@@ -1,7 +1,7 @@
 ---
 # Setup OKD Helper Node
 
-- hosts: all
+- with_inventory_hostnames: all
   vars_files:
     - ../vars/main.yml
     - ../vars/ports.yml
@@ -25,7 +25,7 @@
   #   when: ssh_gen_key
 
   - name: set setup facts
-    include: set_facts_.yaml
+    include_tasks: set_facts_.yaml
 
   - name: Install needed packages
     package:

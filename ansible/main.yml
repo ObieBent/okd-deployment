@@ -30,4 +30,4 @@
   #     creates: "/var/lib/libvirt/pool/ssd/fedora-coreos-{{ coreos_version }}-qemu.x86_64.raw"
 
   - name: Resize the qcow2 image in /srv/libvirt/ssd
-    shell: 'qemu-img resize /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /var//srv/libvirt/ssd'
+    shell: 'qemu-img resize /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 60G && cp /var/tmp/fedora-coreos-{{ coreos_version }}-qemu.x86_64.qcow2 /srv/libvirt/hdd'

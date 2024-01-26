@@ -5,7 +5,7 @@ set -euo pipefail
 PROJECT_DIR="$PWD"
 MONITORING_DIR="$PROJECT_DIR/monitoring"
 
-OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.12 | head -n1)"
+OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.14 | head -n1)"
 OPENSHIFT_INSTALL="$PROJECT_DIR/openshift-install-${OPENSHIFT_INSTALL_RELEASE}"
 
 #### AUTOMATICALLY APPROVE WORKER CSRS #########

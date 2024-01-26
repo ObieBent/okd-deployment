@@ -8,7 +8,7 @@ KUBECONFIG_PATH="$INSTALL_DIR/auth/kubeconfig"
 TERRAFORM_HOSTS_BASE_DIR="$PROJECT_DIR/terraform"
 
 OPENSHIFT_INSTALL="$PROJECT_DIR/openshift-install-${OPENSHIFT_INSTALL_RELEASE}"
-OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.12 | head -n1)"
+OPENSHIFT_INSTALL_RELEASE="$(curl -s https://api.github.com/repos/okd-project/okd/releases | jq -r '.[].tag_name' | grep ^4.14 | head -n1)"
 
 if [[ -z ${COREOS_VERSION+x} ]]; then
     COREOS_VERSION=$(curl -s https://builds.coreos.fedoraproject.org/streams/stable.json | jq -r '.architectures.x86_64.artifacts.qemu.release')
