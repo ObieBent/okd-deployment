@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "libvirt" {
-  uri = "qemu+ssh://${var.user}@${var.host}/system"
+  uri = "qemu+ssh://${var.user}@${var.host}:2222/system"
 }
 
 module "fcos_base" {

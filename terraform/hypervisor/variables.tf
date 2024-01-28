@@ -9,7 +9,7 @@
 # network resource you wish to deploy to.
 variable "host" {
   type    = string
-  default = "okd.bme.lab"
+  default = "okd.bomar.bme.lab"
 }
 
 # user to authenticate to the resource as.
