@@ -30,6 +30,7 @@ resource "libvirt_volume" "master_root_disk" {
             type        = "ssh"
             user        = "borisassogba"
             host        = var.host
+            port        = 2222
             # Allow to use ssh private key protected by a passphrase
             # Please load this private key before
             # ssh-add = ~/.ssh/id_rsa
