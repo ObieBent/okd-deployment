@@ -27,7 +27,7 @@ resource "libvirt_volume" "worker_root_disk" {
 
         connection {
             type        = "ssh"
-            user        = "borisassogba"
+            user        = "root"
             host        = var.host
             port        = 2222
             # Allow to use ssh private key protected by a passphrase
