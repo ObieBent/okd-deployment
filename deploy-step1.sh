@@ -63,7 +63,7 @@ TERRAFORM_HOSTS_BASE_DIR="$PROJECT_DIR/terraform"
 OPENSHIFT_INSTALL="$PROJECT_DIR/openshift-install-${OPENSHIFT_INSTALL_RELEASE}"
 
 get_installer() {
-    TEMPDIR=$(mkdir -p /home/install)
+    TEMPDIR=$(mkdir -p /home/borisassogba/okd-install)
     pushd $TEMPDIR
     if [[ -z ${OKD_DOWNLOAD_URL+x} ]]; then
         oc adm release extract --command 'openshift-install' "quay.io/openshift/okd:$OPENSHIFT_INSTALL_RELEASE" || \
