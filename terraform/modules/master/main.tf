@@ -58,6 +58,11 @@ resource "libvirt_domain" "masters" {
         type = "virtio"
     }
 
+    graphics {
+        type = "vnc" 
+        listen_type = "address"
+    }
+
     disk {
         volume_id = element(libvirt_volume.master_root_disk.*.id, count.index)
     }

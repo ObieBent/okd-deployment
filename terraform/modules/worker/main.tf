@@ -78,6 +78,11 @@ resource "libvirt_domain" "workers" {
         type = "virtio"
     }
 
+    graphics {
+        type = "vnc" 
+        listen_type = "address"
+    }
+
     disk {
         volume_id = element(libvirt_volume.worker_root_disk.*.id, count.index)
     }

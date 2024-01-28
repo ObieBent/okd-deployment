@@ -59,6 +59,11 @@ resource "libvirt_domain" "bootstrap" {
         type = "virtio"
     }
 
+    graphics {
+        type = "vnc" 
+        listen_type = "address"
+    }
+
     console {
       type        = "pty"
       target_port = "0"
