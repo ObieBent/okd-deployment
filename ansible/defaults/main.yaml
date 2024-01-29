@@ -1,5 +1,8 @@
 ---
 disk: vda
+okd: 
+  name: "okd"
+  ipaddr: "192.168.110.1"
 helper:
   name: "helper"
   ipaddr: "192.168.110.9"

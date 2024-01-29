@@ -14,6 +14,8 @@ smtp	IN	A	{{ helper.ipaddr }}
 ;
 {{ helper.name | lower }}	IN	A	{{ helper.ipaddr }}
 ;
+; The hypervisor
+{{ okd.name | lower }}	IN	A	{{ okd.ipaddr }}
 ;
 ; The api points to the IP of your load balancer
 api			IN	A	{{ helper.ipaddr }}
@@ -43,15 +45,5 @@ registry	IN	A	{{ helper.ipaddr }}
 {{ w.name | lower }}		IN	A	{{ w.ipaddr }}
 {% endfor %}
 {% endif %}
-;
-; The ETCd cluster lives on the masters...so point these to the IP of the masters
-{% for m in masters %}
-etcd-{{ loop.index0 }}	IN	A	{{ m.ipaddr }}
-{% endfor %}
-;
-; The SRV records are IMPORTANT....make sure you get these right...note the trailing dot at the end...
-{% for m in masters %}
-_etcd-server-ssl._tcp	IN	SRV	0 10 2380 etcd-{{ loop.index0 }}.{{ dns.clusterid }}.{{ dns.domain | lower }}.
-{% endfor %}
 ;
 ;EOF
