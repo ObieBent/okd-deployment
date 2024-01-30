@@ -126,7 +126,7 @@
 
   - name: Mirror the registry
     when: setup_registry.autosync_registry
-    shell: /usr/bin/oc adm -a ~/.openshift/pull-secret-updated release mirror \
+    shell: /usr/bin/oc adm -a ~/.openshift/pull-secret-updated release mirror --keep-manifest-list=true \
       --from={{ release_image }} \
       --to={{ local_registry }}/{{ setup_registry.local_repo }} \
       --to-release-image={{ local_registry }}/{{ setup_registry.local_repo }}:{{ setup_registry.release_tag }}
