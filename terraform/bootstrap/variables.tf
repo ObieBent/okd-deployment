@@ -38,3 +38,11 @@ variable bootstrap_root_disk_size {
 variable "coreos_version" {
 
 }
+
+variable "autostart" {
+  default = true
+}
+
+variable "cpu" {
+  default = "host-model"
+}

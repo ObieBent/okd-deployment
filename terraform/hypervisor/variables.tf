@@ -34,6 +34,14 @@ variable "coreos_version" {
 
 }
 
+variable "autostart" {
+  default = true
+}
+
+variable "cpu" {
+  default = "host-model"
+}
+
 ##### WORKER CONFIGURATION ####
 
 # How many MiB of ram to allocate for the workers

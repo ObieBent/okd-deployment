@@ -32,6 +32,8 @@ module "stacks_masters" {
   fcos_version   = var.coreos_version
   rootfs         = module.fcos_base.fcos_base_rootfs
   host           = var.host
+  autostart      = var.autostart
+  cpu            = var.cpu
   # ssh_private_key = file(var.ssh_private_key_path)
 }
 
@@ -51,5 +53,8 @@ module "stacks_workers" {
   fcos_version       = var.coreos_version
   rootfs             = module.fcos_base.fcos_base_rootfs
   host               = var.host
+  autostart          = var.autostart
+  cpu                = var.cpu
+
   # ssh_private_key = file(var.ssh_private_key_path)
 }

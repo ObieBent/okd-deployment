@@ -46,6 +46,12 @@ resource "libvirt_domain" "bootstrap" {
 
     coreos_ignition = libvirt_ignition.bootstrap_ign.id
 
+    autostart = var.autostart
+
+    cpu {
+        mode = var.cpu
+    }
+
     disk {
         volume_id = libvirt_volume.bootstrap_root_disk.id
     }

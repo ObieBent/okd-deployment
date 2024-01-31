@@ -47,6 +47,16 @@ variable "host" {
     description = "hostname of libvirt virt host"
 }
 
+variable "autostart" {
+    type = string
+    description = "start the domain on host boot"
+}
+
+variable "cpu" {
+    type = string
+    description = "CPU mode of the guest OS" 
+}
+
 # variable "ssh_private_key" {
 #     type = string
 #     description = "SSH private key file"

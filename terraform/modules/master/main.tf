@@ -49,6 +49,12 @@ resource "libvirt_domain" "masters" {
 
     coreos_ignition = libvirt_ignition.master_ign.id
 
+    autostart = var.autostart
+
+    cpu {
+        mode = var.cpu
+    }
+
     network_interface {
         bridge = var.bridge_name
         mac = element(var.mac_addrs, count.index)
