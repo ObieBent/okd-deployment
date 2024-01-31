@@ -3,6 +3,7 @@ nfsnamespace=nfs-provisioner
 rbac=/usr/local/src/nfs-provisioner-rbac.yaml
 deploy=/usr/local/src/nfs-provisioner-deployment.yaml
 sc=/usr/local/src/nfs-provisioner-sc.yaml
+label_monitoring="openshift.io/cluster-monitoring=true"
 #
 export PATH=/usr/local/bin:$PATH
 #
@@ -35,6 +36,7 @@ fi
 ## If we are here; I can try and deploy
 oc new-project ${nfsnamespace}
 oc project ${nfsnamespace}
+oc label namespace ${nfsnamespace} ${label}
 oc create -f ${rbac}
 oc adm policy add-scc-to-user hostmount-anyuid system:serviceaccount:${nfsnamespace}:nfs-client-provisioner
 oc create -f ${deploy} -n ${nfsnamespace}
