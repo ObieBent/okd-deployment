@@ -1,7 +1,7 @@
 # This file denotes the base configuration for the OKD 4.x cluster deployment.
 
 apiVersion: v1
-baseDomain: cluster.okd.example.com
+baseDomain: cluster.okd.example.com   # to change
 compute:
 - hyperthreading: Enabled
   name: worker
@@ -11,7 +11,7 @@ controlPlane:
   name: master
   replicas: 3
 metadata:
-  name: okd-cluster
+  name: okd-cluster # to change
 networking:
   clusterNetwork:
   - cidr: 10.128.0.0/14
@@ -26,8 +26,8 @@ additionalTrustBundle: |
   ${REGISTRY_CERTIFICATE}
 imageContentSources:
 - mirrors:
-  - registry.bomar.bme.lab:5000/okd
+  - registry.example.com:5000/okd
   source: quay.io/openshift/okd
 - mirrors:
-  - registry.bomar.bme.lab:5000/okd
+  - registry.example.com:5000/okd
   source: quay.io/openshift/okd-content
