@@ -22,3 +22,12 @@ platform:
   none: {}
 pullSecret: '{"auths":{"fake":{"auth":"aWQ6cGFzcwo="}}}'
 sshKey: 'YOU NEED TO REPLACE THIS WITH YOUR SSH KEY'
+additionalTrustBundle: | 
+  ${REGISTRY_CERTIFICATE}
+imageContentSources:
+- mirrors:
+  - registry.bomar.bme.lab:5000/okd
+  source: quay.io/openshift/okd
+- mirrors:
+  - registry.bomar.bme.lab:5000/okd
+  source: quay.io/openshift/okd-content
