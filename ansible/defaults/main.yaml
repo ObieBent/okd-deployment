@@ -9,16 +9,16 @@ helper:
 dns:
   domain: "bme.lab"
   clusterid: "bomar"
-  forwarder1: "185.12.64.1"
-  forwarder2: "185.12.64.2"
+  forwarder1: "{{ ansible_dns.nameservers[0] }}"
+  forwarder2: "8.8.8.8"
 dhcp:
-  router: "192.168.110.9"
-  bcast: "192.168.110.255"
-  netmask: "255.255.255.0"
+  router: "{{ ansible_default_ipv4.gateway }}"
+  bcast: "{{ ansible_default_ipv4.broadcast }}"
+  netmask: "{{ ansible_default_ipv4.netmask }}"
   poolstart: "192.168.110.80"
   poolend: "192.168.110.99"
-  ipid: "192.168.110.0"
-  netmaskid: "255.255.255.0"
+  ipid: "{{ ansible_default_ipv4.network }}"
+  netmaskid: "{{ ansible_default_ipv4.netmask }}"
 bootstrap:
   name: "bootstrap"
   ipaddr: "192.168.110.110"
